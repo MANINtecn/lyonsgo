@@ -161,16 +161,36 @@ interface MetricaAcesso {
 
 ## 📋 ROADMAP DE IMPLEMENTAÇÃO
 
-### Fase 1: Fundação & Protótipo Funcional (EM ANDAMENTO)
+### Fase 1: Fundação & Protótipo Funcional (CONCLUÍDA)
 - [X] Criar estrutura do projeto Next.js com App Router, TypeScript e Tailwind CSS.
 - [X] Configurar repositório Git isolado (`git init`).
 - [X] Criar Diário de Bordo Oficial `lyonsgo.md`.
-- [ ] Construir layout da página de Bio Link / Minisite moderna, fluida e responsiva com suporte a temas.
-- [ ] Implementar seletor dinâmico de vendedor/afiliado com troca instantânea de contato e rastreamento.
-- [ ] Implementar modal de QR Code dinâmico para compartilhamento rápido.
-- [ ] Implementar bloco de cópia rápida de Chave PIX com feedback visual.
+- [X] Construir layout da página de Bio Link / Minisite moderna, fluida e responsiva com suporte a temas.
+- [X] Implementar seletor dinâmico de vendedor/afiliado com troca instantânea de contato e rastreamento.
+- [X] Implementar modal de QR Code dinâmico para compartilhamento rápido.
+- [X] Implementar bloco de cópia rápida de Chave PIX com feedback visual.
 
 ### Fase 2: Painel de Gerenciamento & Multitenancy
 - [ ] Criação de rotas dinâmicas `/[slug]` e `/[slug]/[vendedor]`.
 - [ ] Painel para o lojista/administrador cadastrar sua equipe e gerar os links de cada afiliado.
 - [ ] Estatísticas de cliques e acessos por vendedor.
+
+---
+
+## 📜 HISTÓRICO DE VERSÕES & LOGS DE DESENVOLVIMENTO
+
+### Versão 0.1.0 - Inicialização do Projeto & Motor de Atribuição (08/10/2026)
+1. **Configuração e Isolamento de Ambiente**:
+   - Inicializado projeto autônomo Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 na pasta `lyonsgo/`.
+   - Inicializado repositório Git isolado (`git init -b main`) e commit inicial realizado (`feat: initial commit - lyonsgo minisites and bio links engine with seller attribution and diary`).
+   - Sincronizado isolamento no `.gitignore` raiz do ShopyGo.
+2. **Motor de Minisites & Bio Links (`src/app/page.tsx`)**:
+   - Desenvolvido protótipo interativo completo com alternância de temas (*Dark Luxury*, *Cyber Glow*, *Minimal Pure*).
+   - Implementado simulador de múltiplos vendedores (Carlos, Mariana, Roberto) com troca instantânea de telefone, cargo, ID e link de rastreamento.
+   - Geração dinâmica de link de WhatsApp com mensagem personalizada contendo o nome e a referência do vendedor (`wa.me/55...`).
+   - Vitrine de produtos com botão "Negociar" direto no WhatsApp do vendedor ativo.
+   - Bloco de cópia de Chave PIX com feedback de clipboard.
+   - Modal de QR Code para compartilhamento rápido em estabelecimentos físicos ou balcão.
+3. **Build e Testes**:
+   - Compilação estática (`npm run build`) validada com 0 erros e 0 alertas.
+
