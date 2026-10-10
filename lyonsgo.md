@@ -181,6 +181,25 @@ interface MetricaAcesso {
 
 ## 📜 HISTÓRICO DE VERSÕES & LOGS DE DESENVOLVIMENTO
 
+### Versão 0.3.0 - Transformação em Mini SaaS Multi-Tenant & Central de Instruções (10/10/2026)
+1. **Arquitetura Multi-Tenant Real (SaaS)**:
+   - Dicionário de tenants escalável (`SaasDatabase = Record<slug, MinisiteData>`) no armazenamento do sistema.
+   - Demonstrações de nichos pré-carregadas para comprovação imediata de modelo de negócio:
+     - `elite-motors`: Concessionária de Veículos (Consultores Carlos, Mariana e Roberto).
+     - `imobiliaria-prime`: Imobiliária & Lançamentos de Alto Padrão (Corretores Lucas e Juliana).
+     - `estetica-glow`: Clínica de Estética & Rejuvenescimento (Dra. Amanda e Beatriz Terapeuta).
+2. **SuperAdmin & Gestão de Empresas Clientes**:
+   - Seletor de empresas no topo do painel `/admin`, com alternância instantânea de contexto.
+   - Modal de criação de nova empresa em 1 clique (+ Nova Empresa com geração automática de slug e dados base).
+   - Exclusão e restauração com segurança.
+3. **Manual Estratégico & Guia Passo a Passo (`ManualSaasModal.tsx`)**:
+   - Botão de destaque no topo do painel: **"Como Usar & Potencial do App"**.
+   - **O Poder do Aplicativo**: Comparativo contra links na bio tradicionais (Linktree), rastreamento sem atrito de comissões via WhatsApp e conversão em 1 clique.
+   - **Mercados Alvo & Nichos Atendidos**: Concessionárias, Imobiliárias, Clínicas de Estética, Lojas de Moda/Varejo, Salões de Beleza e Prestadores de Serviços.
+   - **Passo a Passo Mastigado**: 5 etapas práticas para o cliente não se perder desde a criação até a divulgação e auditoria.
+4. **Resolução Dinâmica e Páginas 404 Personalizadas**:
+   - `/[slug]` e `/[slug]/[vendedor]` puxam os dados do tenant em tempo real. Se o slug não existir, apresenta página amigável convidando a criar o minisite no admin.
+
 ### Versão 0.2.0 - Rotas Dinâmicas, Painel de Gestão & Central de Auditoria (10/10/2026)
 1. **Roteamento Dinâmico Multitenant**:
    - `/[slug]`: Minisite padrão do estabelecimento comercial (`src/app/[slug]/page.tsx`).

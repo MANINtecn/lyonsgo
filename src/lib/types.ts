@@ -22,8 +22,10 @@ export interface ItemCatalogo {
 }
 
 export interface MinisiteData {
-  slug: string; // Ex: 'elite-motors'
+  slug: string; // Ex: 'elite-motors', 'imobiliaria-prime'
   nomeLoja: string;
+  ramoAtividade?: string; // Ex: 'Concessionária de Veículos', 'Imobiliária & Corretores'
+  planoAtivo?: string; // Ex: 'Pro Multi-Vendedores'
   slogan: string;
   descricao: string;
   avatarLoja: string;
@@ -37,7 +39,10 @@ export interface MinisiteData {
   whatsappPadrao?: string;
   vendedores: Vendedor[];
   catalogo: ItemCatalogo[];
+  criadoEm?: string;
 }
+
+export type SaasDatabase = Record<string, MinisiteData>;
 
 export interface TemaConfig {
   id: 'dark' | 'cyber' | 'light';
