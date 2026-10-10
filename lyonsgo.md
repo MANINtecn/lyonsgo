@@ -170,14 +170,32 @@ interface MetricaAcesso {
 - [X] Implementar modal de QR Code dinâmico para compartilhamento rápido.
 - [X] Implementar bloco de cópia rápida de Chave PIX com feedback visual.
 
-### Fase 2: Painel de Gerenciamento & Multitenancy
-- [ ] Criação de rotas dinâmicas `/[slug]` e `/[slug]/[vendedor]`.
-- [ ] Painel para o lojista/administrador cadastrar sua equipe e gerar os links de cada afiliado.
-- [ ] Estatísticas de cliques e acessos por vendedor.
+### Fase 2: Painel de Gerenciamento & Multitenancy (CONCLUÍDA)
+- [X] Criação de rotas dinâmicas `/[slug]` e `/[slug]/[vendedor]`.
+- [X] Painel para o lojista/administrador cadastrar sua equipe e gerar os links de cada afiliado.
+- [X] Estatísticas de cliques e acessos por vendedor (Métricas de Conversão).
+- [X] Componente modular `MinisiteView` desacoplado e reutilizável.
+- [X] Armazenamento reativo e testes de compilação de produção (código de saída 0).
 
 ---
 
 ## 📜 HISTÓRICO DE VERSÕES & LOGS DE DESENVOLVIMENTO
+
+### Versão 0.2.0 - Rotas Dinâmicas, Painel de Gestão & Central de Auditoria (10/10/2026)
+1. **Roteamento Dinâmico Multitenant**:
+   - `/[slug]`: Minisite padrão do estabelecimento comercial (`src/app/[slug]/page.tsx`).
+   - `/[slug]/[vendedor]`: Minisite com amarração estrita ao vendedor/afiliado (`src/app/[slug]/[vendedor]/page.tsx`). Ao abrir o link, avatar, nome, cargo, WhatsApp e tags são imediatamente injetados nas ações do usuário.
+2. **Painel de Gestão & Central de Auditoria (`/admin`)**:
+   - Desenvolvido em `src/app/admin/page.tsx` com 4 abas integradas:
+     - **Auditoria & Métricas**: Contadores consolidados de acessos, cliques no WhatsApp e taxa de conversão individualizada por consultor.
+     - **Vendedores & Links**: Adição, remoção, geração de links automáticos com botão de copiar, teste direto e QR Code exclusivo.
+     - **Estoque / Vitrine**: Gestão visual dos produtos com preços, imagens e tags promocionais.
+     - **Dados da Loja & Tema**: Edição de nome, slogan, descrição, endereço, horários, chave PIX e escolha de temas (*Dark Luxury*, *Cyber Glow*, *Minimal Pure*).
+3. **Módulo de Armazenamento e Tipagem**:
+   - Interfaces estritas em `src/lib/types.ts`.
+   - Store local com métodos utilitários (`src/lib/store.ts`) para persistência de dados e tracking de eventos (`registrarVisita`, `registrarCliqueWhatsapp`).
+4. **Build & Qualidade**:
+   - `npm run build` executado com Turbopack: 5 rotas geradas (2 estáticas, 2 dinâmicas SSR, 1 admin), 0 erros de tipagem.
 
 ### Versão 0.1.0 - Inicialização do Projeto & Motor de Atribuição (08/10/2026)
 1. **Configuração e Isolamento de Ambiente**:
@@ -193,4 +211,5 @@ interface MetricaAcesso {
    - Modal de QR Code para compartilhamento rápido em estabelecimentos físicos ou balcão.
 3. **Build e Testes**:
    - Compilação estática (`npm run build`) validada com 0 erros e 0 alertas.
+
 
