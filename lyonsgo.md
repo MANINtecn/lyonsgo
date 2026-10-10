@@ -4,6 +4,10 @@
 > **Finalidade**: Plataforma de Minisites de Alta Conversão, Bio Links Profissionais e Rastreamento de Vendas por Afiliados/Vendedores  
 > **Regra Primária**: Em caso de qualquer dúvida, incerteza ou reinício de sessão, **LEIA ESTE DIÁRIO PRIMEIRO**.
 
+> 🚨 **[COMPROMISSO CRÍTICO / COBRANÇA OBRIGATÓRIA NA PRÓXIMA CONVERSA]**:  
+> No início da próxima sessão, **COBRAR IMEDIATAMENTE O USUÁRIO PELO LINK DO REPOSITÓRIO NO GITHUB DO LYONSGO**.  
+> Mensagem a ser cobrada: *"E aí, conseguiu criar o repositório remoto no GitHub para o LyonsGo? Me passa o link dele aqui para adicionarmos como origin e fazermos o git push agora!"*
+
 ---
 
 ## 🧭 REGRAS FUNDAMENTAIS DO DIÁRIO (LEI OPERACIONAL)
@@ -176,6 +180,12 @@ interface MetricaAcesso {
 - [X] Estatísticas de cliques e acessos por vendedor (Métricas de Conversão).
 - [X] Componente modular `MinisiteView` desacoplado e reutilizável.
 - [X] Armazenamento reativo e testes de compilação de produção (código de saída 0).
+- [X] Botão de Manual e Guia de Potencial do SaaS integrado no Admin.
+
+### Fase 3: Conexão GitHub & Deploy Oficial (EM ANDAMENTO - PENDÊNCIA PRIORITÁRIA)
+- [ ] **[COBRAR USUÁRIO NA PRÓXIMA SESSÃO]** Criar repositório remoto vazio no GitHub para o LyonsGo.
+- [ ] Vincular remote origin (`git remote add origin <URL>`) e realizar `git push -u origin main`.
+- [ ] Conectar repositório na plataforma de deploy (Vercel) e apontar o domínio oficial `lyonsgo.com.br`.
 
 ---
 
