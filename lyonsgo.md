@@ -3,10 +3,8 @@
 > **Domínio Oficial**: `lyonsgo.com.br`  
 > **Finalidade**: Plataforma de Minisites de Alta Conversão, Bio Links Profissionais e Rastreamento de Vendas por Afiliados/Vendedores  
 > **Regra Primária**: Em caso de qualquer dúvida, incerteza ou reinício de sessão, **LEIA ESTE DIÁRIO PRIMEIRO**.
-
-> 🚨 **[COMPROMISSO CRÍTICO / COBRANÇA OBRIGATÓRIA NA PRÓXIMA CONVERSA]**:  
-> No início da próxima sessão, **COBRAR IMEDIATAMENTE O USUÁRIO PELO LINK DO REPOSITÓRIO NO GITHUB DO LYONSGO**.  
-> Mensagem a ser cobrada: *"E aí, conseguiu criar o repositório remoto no GitHub para o LyonsGo? Me passa o link dele aqui para adicionarmos como origin e fazermos o git push agora!"*
+> **Repositório GitHub Oficial**: `https://github.com/MANINtecn/lyonsgo.git`  
+> **Status de Sincronização**: Conectado e sincronizado com a branch `main`.
 
 ---
 
@@ -182,14 +180,20 @@ interface MetricaAcesso {
 - [X] Armazenamento reativo e testes de compilação de produção (código de saída 0).
 - [X] Botão de Manual e Guia de Potencial do SaaS integrado no Admin.
 
-### Fase 3: Conexão GitHub & Deploy Oficial (EM ANDAMENTO - PENDÊNCIA PRIORITÁRIA)
-- [ ] **[COBRAR USUÁRIO NA PRÓXIMA SESSÃO]** Criar repositório remoto vazio no GitHub para o LyonsGo.
-- [ ] Vincular remote origin (`git remote add origin <URL>`) e realizar `git push -u origin main`.
-- [ ] Conectar repositório na plataforma de deploy (Vercel) e apontar o domínio oficial `lyonsgo.com.br`.
+### Fase 3: Conexão GitHub & Deploy Oficial (SINCRONIZADO COM GITHUB)
+- [X] Criar repositório remoto no GitHub para o LyonsGo (`https://github.com/MANINtecn/lyonsgo.git`).
+- [X] Vincular remote origin (`git remote add origin https://github.com/MANINtecn/lyonsgo.git`) e realizar `git push -u origin main`.
+- [ ] Conectar repositório na plataforma de deploy (Vercel) e apontar o domínio/subdomínio oficial `lyonsgo.com.br`.
 
 ---
 
 ## 📜 HISTÓRICO DE VERSÕES & LOGS DE DESENVOLVIMENTO
+
+### Versão 0.4.0 - Sincronização e Conexão com Repositório Remoto GitHub (15/10/2026)
+1. **Vinculação do Repositório Remoto Oficial**:
+   - Adicionado remote `origin` apontando para `https://github.com/MANINtecn/lyonsgo.git`.
+   - Executado push inicial completo com tracking da branch `main` (`git push -u origin main`).
+   - Repositório pronto para conexão de deploy contínuo na Vercel com apontamento para subdomínio de `lyonsgo.com.br`.
 
 ### Versão 0.3.0 - Transformação em Mini SaaS Multi-Tenant & Central de Instruções (10/10/2026)
 1. **Arquitetura Multi-Tenant Real (SaaS)**:
