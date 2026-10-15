@@ -189,6 +189,24 @@ interface MetricaAcesso {
 
 ## 📜 HISTÓRICO DE VERSÕES & LOGS DE DESENVOLVIMENTO
 
+### Versão 0.5.0 - Sistema de Autenticação Firebase, Login do Pérsio & Gestão de Credenciais (15/10/2026)
+1. **Autenticação com Firebase Auth & Firestore**:
+   - Integração do Firebase Auth (`shopygo-7dbc6`) no LyonsGo para login unificado de administradores.
+   - Suporte a autenticação por E-mail e Senha, além de login com Conta Google (`GoogleAuthProvider`).
+   - Sessão com persistência local (`browserLocalPersistence`).
+2. **Rota Protegida `/admin/login`**:
+   - Tela de login com design escuro e dourado/âmbar (identidade visual LyonsGo).
+   - Credenciais padrão para o Pérsio (`persio@lyonsgo.com.br` / `LyonsGo#2026`) com botão de auto-preenchimento e compatibilidade com contas de admin do ShopyGo.
+   - Modal de recuperação de senha por e-mail integrado (`sendPasswordResetEmail`).
+3. **Barreira de Acesso & Proteção do Painel `/admin`**:
+   - Redirecionamento automático para `/admin/login` caso o usuário não esteja autenticado.
+   - Tela de carregamento enquanto valida a sessão.
+4. **Modal de Segurança & Troca de Senha ("Salvou uma vez, já era")**:
+   - Componente `AdminSegurancaModal.tsx` acessível pelo botão "Segurança & Senha" no cabeçalho do painel.
+   - Permite ao Pérsio alterar seu e-mail de login e definir nova senha master a qualquer momento.
+   - Sincronização automática no Firebase Auth e na coleção `configuracoes/lyonsgo_admin` do Firestore.
+   - Botão de Logout ("Sair") com encerramento de sessão imediato.
+
 ### Versão 0.4.0 - Sincronização e Conexão com Repositório Remoto GitHub (15/10/2026)
 1. **Vinculação do Repositório Remoto Oficial**:
    - Adicionado remote `origin` apontando para `https://github.com/MANINtecn/lyonsgo.git`.

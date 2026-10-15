@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Users,
   Car,
@@ -22,7 +23,11 @@ import {
   CheckCircle2,
   BookOpen,
   Building2,
-  ChevronDown
+  ChevronDown,
+  ShieldCheck,
+  LogOut,
+  KeyRound,
+  Loader2
 } from "lucide-react";
 import { MinisiteData, Vendedor, ItemCatalogo, SaasDatabase } from "../../lib/types";
 import {
@@ -36,13 +41,19 @@ import {
   TEMAS
 } from "../../lib/store";
 import ManualSaasModal from "../../components/ManualSaasModal";
+import AdminSegurancaModal from "../../components/AdminSegurancaModal";
+import { useAuth } from "../../lib/auth";
 
 export default function AdminPage() {
+  const router = useRouter();
+  const { user, loading: authLoading, logout, adminConfig } = useAuth();
+
   const [db, setDb] = useState<SaasDatabase>(SAAS_DEFAULT_DATABASE);
   const [slugSelecionado, setSlugSelecionado] = useState<string>("elite-motors");
   const [lojaAtual, setLojaAtual] = useState<MinisiteData>(SAAS_DEFAULT_DATABASE["elite-motors"]);
 
   const [abaAtiva, setAbaAtiva] = useState<"auditoria" | "vendedores" | "catalogo" | "loja">("auditoria");
+  const [modalSegurancaAberto, setModalSegurancaAberto] = useState(false);
   const [salvoFeedback, setSalvoFeedback] = useState(false);
   const [copiouId, setCopiouId] = useState<string | null>(null);
   const [modalQrVendedor, setModalQrVendedor] = useState<Vendedor | null>(null);
@@ -87,6 +98,19 @@ export default function AdminPage() {
       setLojaAtual(loadedDb[initialSlug]);
     }
   }, []);
+
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.push("/admin/login");
+    }
+  }, [user, authLoading, router]);
+
+  const handleLogout = async () => {
+    if (confirm("Deseja realmente sair do painel administrativo?")) {
+      await logout();
+      router.push("/admin/login");
+    }
+  };
 
   const mudarLoja = (slug: string) => {
     setSlugSelecionado(slug);
@@ -274,6 +298,17 @@ export default function AdminPage() {
   const totalCliques = lojaAtual.vendedores.reduce((acc, v) => acc + (v.totalCliquesWhatsapp || 0), 0);
   const taxaConversaoMedia = totalVisitas > 0 ? ((totalCliques / totalVisitas) * 100).toFixed(1) : "0.0";
 
+  if (authLoading || !user) {
+    return (
+      <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center text-zinc-400 gap-3">
+        <Loader2 className="w-8 h-8 text-amber-500 animate-spin" />
+        <span className="text-xs uppercase tracking-widest font-semibold text-zinc-500">
+          Verificando permissões de acesso...
+        </span>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-6">
@@ -307,10 +342,20 @@ export default function AdminPage() {
             {/* BOTÃO PRINCIPAL DE INSTRUÇÕES & PODER DO SAAS */}
             <button
               onClick={() => setModalManualAberto(true)}
-              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95"
+              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <BookOpen className="w-4 h-4" />
               Como Usar & Potencial do App
+            </button>
+
+            {/* BOTÃO DE SEGURANÇA & SENHA DO PÉRSIO */}
+            <button
+              onClick={() => setModalSegurancaAberto(true)}
+              className="px-3.5 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-750 text-xs font-semibold flex items-center gap-2 transition-all text-amber-400 border border-amber-500/30 hover:border-amber-400 cursor-pointer shadow-sm"
+              title="Gerenciar Login, E-mail e Senha do Administrador"
+            >
+              <ShieldCheck className="w-4 h-4 text-amber-400" />
+              <span className="hidden sm:inline">Segurança & Senha</span>
             </button>
 
             <Link
@@ -324,10 +369,19 @@ export default function AdminPage() {
 
             <button
               onClick={restaurarPadrao}
-              className="p-2.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors border border-zinc-700"
+              className="p-2.5 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-white transition-colors border border-zinc-700 cursor-pointer"
               title="Restaurar empresas padrão do SaaS"
             >
               <RotateCcw className="w-4 h-4" />
+            </button>
+
+            {/* BOTÃO DE LOGOUT */}
+            <button
+              onClick={handleLogout}
+              className="p-2.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 transition-colors cursor-pointer"
+              title={`Sair do painel (${user?.email || adminConfig.loginSalvo})`}
+            >
+              <LogOut className="w-4 h-4" />
             </button>
           </div>
         </header>
@@ -1051,6 +1105,12 @@ export default function AdminPage() {
       <ManualSaasModal
         aberto={modalManualAberto}
         onFechar={() => setModalManualAberto(false)}
+      />
+
+      {/* Modal de Segurança, Login e Senha do Pérsio */}
+      <AdminSegurancaModal
+        aberto={modalSegurancaAberto}
+        onFechar={() => setModalSegurancaAberto(false)}
       />
     </div>
   );
