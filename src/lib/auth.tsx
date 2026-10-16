@@ -102,7 +102,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const loginWithEmail = async (email: string, pass: string) => {
-    if (!auth || typeof auth.signInWithEmailAndPassword !== "function") {
+    if (!auth || !(auth as any).app) {
       // Fallback local se Firebase não estiver disponível
       if (
         (email.trim().toLowerCase() === DEFAULT_ADMIN_EMAIL && pass === DEFAULT_ADMIN_PASS) ||
@@ -147,7 +147,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const loginWithGoogle = async () => {
-    if (!auth || typeof auth.signInWithPopup !== "function") {
+    if (!auth || !(auth as any).app) {
       return { success: false, error: "Autenticação Google não disponível." };
     }
 
