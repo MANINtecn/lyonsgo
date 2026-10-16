@@ -14,7 +14,6 @@ import {
   Loader2,
   CheckCircle2,
   KeyRound,
-  Sparkles,
   ArrowLeft
 } from "lucide-react";
 import Link from "next/link";

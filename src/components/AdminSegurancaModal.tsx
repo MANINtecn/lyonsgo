@@ -12,7 +12,6 @@ import {
   Eye,
   EyeOff,
   LogOut,
-  Sparkles,
   UserCheck
 } from "lucide-react";
 import { useAuth } from "../lib/auth";

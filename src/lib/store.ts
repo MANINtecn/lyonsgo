@@ -28,18 +28,18 @@ export const TEMAS: TemaConfig[] = [
 ];
 
 export const SAAS_DEFAULT_DATABASE: SaasDatabase = {
-  "elite-motors": {
-    slug: "elite-motors",
-    nomeLoja: "Elite Motors Concessionária",
-    ramoAtividade: "Concessionária de Veículos & Seminovos",
-    planoAtivo: "Pro Multi-Vendedores",
-    slogan: "Veículos Exclusivos & Seminovos Selecionados",
-    descricao: "Referência em atendimento premium, taxa especial e avaliação transparente do seu usado.",
-    avatarLoja: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=300&q=80",
-    bannerLoja: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
-    chavePix: "contato@elitemotors.com.br",
-    endereco: "Av. Europa, 1200 - Jardins, São Paulo - SP",
-    horario: "Segunda a Sábado das 08h às 19h",
+  "loja-modelo": {
+    slug: "loja-modelo",
+    nomeLoja: "Minha Loja",
+    ramoAtividade: "Comércio & Serviços",
+    planoAtivo: "Plano Profissional",
+    slogan: "Atendimento Especializado & Produtos Exclusivos",
+    descricao: "Conheça nossas soluções, fale diretamente com nossa equipe no WhatsApp ou faça seu pedido com facilidade.",
+    avatarLoja: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=300&q=80",
+    bannerLoja: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+    chavePix: "contato@sualoja.com.br",
+    endereco: "Av. Central, 1000 - Centro",
+    horario: "Segunda a Sábado das 09h às 19h",
     instagramUrl: "https://instagram.com",
     facebookUrl: "https://facebook.com",
     temaId: "dark",
@@ -47,185 +47,26 @@ export const SAAS_DEFAULT_DATABASE: SaasDatabase = {
     criadoEm: "2026-10-01",
     vendedores: [
       {
-        id: "carlos",
-        codigo: "#VEND-001",
-        nome: "Carlos Silva",
-        cargo: "Consultor Sênior",
-        whatsapp: "5511999991111",
+        id: "vendedor-01",
+        codigo: "#VEND-01",
+        nome: "Consultor de Vendas",
+        cargo: "Atendimento Comercial",
+        whatsapp: "5511999990000",
         foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-        badge: "Top Vendas",
+        badge: "Vendas",
         ativo: true,
-        totalCliquesWhatsapp: 42,
-        totalVisitas: 128
-      },
-      {
-        id: "mariana",
-        codigo: "#VEND-002",
-        nome: "Mariana Costa",
-        cargo: "Especialista em Financiamentos",
-        whatsapp: "5511999992222",
-        foto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-        badge: "Atendimento Rápido",
-        ativo: true,
-        totalCliquesWhatsapp: 35,
-        totalVisitas: 94
-      },
-      {
-        id: "roberto",
-        codigo: "#VEND-003",
-        nome: "Roberto Mendes",
-        cargo: "Avaliador & Seminovos",
-        whatsapp: "5511999993333",
-        foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
-        badge: "Melhor Avaliação",
-        ativo: true,
-        totalCliquesWhatsapp: 29,
-        totalVisitas: 83
+        totalCliquesWhatsapp: 0,
+        totalVisitas: 0
       }
     ],
     catalogo: [
       {
-        id: "PROD-01",
-        titulo: "BMW 320i M Sport 2024",
-        descricao: "Teto solar, interior cognac, 12.000 km, garantia de fábrica ativa.",
-        preco: "R$ 315.000",
-        tag: "Destaque da Semana",
-        imagem: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80",
-        destaque: true
-      },
-      {
-        id: "PROD-02",
-        titulo: "Porsche Macan GTS 2023",
-        descricao: "Único dono, escapamento esportivo original, revisões na concessionária.",
-        preco: "R$ 589.000",
-        tag: "Oportunidade",
-        imagem: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80",
-        destaque: true
-      }
-    ]
-  },
-  "imobiliaria-prime": {
-    slug: "imobiliaria-prime",
-    nomeLoja: "Prime Imóveis & Coberturas",
-    ramoAtividade: "Imobiliária & Lançamentos de Luxo",
-    planoAtivo: "Plano Franquia Imobiliária",
-    slogan: "Os melhores imóveis e coberturas nos melhores bairros",
-    descricao: "Assessoria imobiliária personalizada para compra, venda e investimentos de alta rentabilidade.",
-    avatarLoja: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=300&q=80",
-    bannerLoja: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    chavePix: "financeiro@primeimoveis.com.br",
-    endereco: "Av. Brigadeiro Faria Lima, 3477 - Itaim Bibi, São Paulo - SP",
-    horario: "Segunda a Sexta das 09h às 19h | Sábado até 14h",
-    instagramUrl: "https://instagram.com",
-    temaId: "cyber",
-    whatsappPadrao: "5511988880000",
-    criadoEm: "2026-10-05",
-    vendedores: [
-      {
-        id: "lucas-corretor",
-        codigo: "#CORR-101",
-        nome: "Lucas Andrade",
-        cargo: "Corretor CRECI 184.230-F",
-        whatsapp: "5511988881111",
-        foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
-        badge: "Especialista Jardins",
-        ativo: true,
-        totalCliquesWhatsapp: 38,
-        totalVisitas: 110
-      },
-      {
-        id: "juliana-imoveis",
-        codigo: "#CORR-102",
-        nome: "Juliana Ferreira",
-        cargo: "Corretora de Lançamentos & Luxo",
-        whatsapp: "5511988882222",
-        foto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
-        badge: "Coberturas & Alto Padrão",
-        ativo: true,
-        totalCliquesWhatsapp: 45,
-        totalVisitas: 130
-      }
-    ],
-    catalogo: [
-      {
-        id: "IMO-01",
-        titulo: "Cobertura Duplex no Itaim Bibi",
-        descricao: "4 suítes, 5 vagas, piscina privativa aquecida e vista panorâmica.",
-        preco: "R$ 8.900.000",
-        tag: "Exclusividade",
-        imagem: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80",
-        destaque: true
-      },
-      {
-        id: "IMO-02",
-        titulo: "Apartamento Garden nos Jardins",
-        descricao: "3 suítes, amplo terraço arborizado, acabamento em mármore travertino.",
-        preco: "R$ 4.650.000",
-        tag: "Pronto para Morar",
-        imagem: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80",
-        destaque: true
-      }
-    ]
-  },
-  "estetica-glow": {
-    slug: "estetica-glow",
-    nomeLoja: "Glow Clínica & Estética Avançada",
-    ramoAtividade: "Clínica de Estética & Harmonização",
-    planoAtivo: "Plano Pro",
-    slogan: "Sua beleza natural realçada com tecnologia e carinho",
-    descricao: "Protocolos faciais e corporais exclusivos, dermatologia estética e rejuvenescimento.",
-    avatarLoja: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=300&q=80",
-    bannerLoja: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
-    chavePix: "pix@glowestetica.com.br",
-    endereco: "Alameda dos Maracatins, 900 - Moema, São Paulo - SP",
-    horario: "Segunda a Sábado das 09h às 20h",
-    instagramUrl: "https://instagram.com",
-    temaId: "light",
-    whatsappPadrao: "5511977770000",
-    criadoEm: "2026-10-08",
-    vendedores: [
-      {
-        id: "dra-amanda",
-        codigo: "#EST-01",
-        nome: "Dra. Amanda Nogueira",
-        cargo: "Biomédica Esteta",
-        whatsapp: "5511977771111",
-        foto: "https://images.unsplash.com/photo-1594824813572-c2e50587d605?auto=format&fit=crop&w=200&q=80",
-        badge: "Harmonização Facial",
-        ativo: true,
-        totalCliquesWhatsapp: 64,
-        totalVisitas: 175
-      },
-      {
-        id: "beatriz-terapeuta",
-        codigo: "#EST-02",
-        nome: "Beatriz Ribeiro",
-        cargo: "Especialista em Protocolos Corporais",
-        whatsapp: "5511977772222",
-        foto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
-        badge: "Drenagem & Laser",
-        ativo: true,
-        totalCliquesWhatsapp: 51,
-        totalVisitas: 140
-      }
-    ],
-    catalogo: [
-      {
-        id: "EST-01",
-        titulo: "Protocolo Glow Face Harmonização",
-        descricao: "Bioestimulador de colágeno + peeling de diamante + hidratação profunda.",
-        preco: "R$ 1.890",
-        tag: "Mais Procurado",
-        imagem: "https://images.unsplash.com/photo-1512290900672-1f486a0189a0?auto=format&fit=crop&w=600&q=80",
-        destaque: true
-      },
-      {
-        id: "EST-02",
-        titulo: "Pacote Redux Body Laser (10 sessões)",
-        descricao: "Criolipólise de placas associada a drenagem linfática método exclusivo.",
-        preco: "R$ 2.450",
-        tag: "Pacote Especial",
-        imagem: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+        id: "ITEM-01",
+        titulo: "Produto ou Serviço em Destaque",
+        descricao: "Descrição detalhada do seu produto ou serviço principal.",
+        preco: "R$ 199,90",
+        tag: "Destaque",
+        imagem: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
         destaque: true
       }
     ]

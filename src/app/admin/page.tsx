@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   Users,
-  Car,
+  ShoppingBag,
   Settings,
   BarChart3,
   Copy,
@@ -14,7 +14,7 @@ import {
   Trash2,
   ExternalLink,
   QrCode,
-  Sparkles,
+  Zap,
   ArrowLeft,
   Save,
   RotateCcw,
@@ -48,11 +48,12 @@ export default function AdminPage() {
   const router = useRouter();
   const { user, loading: authLoading, logout, adminConfig } = useAuth();
 
+  const defaultSlug = Object.keys(SAAS_DEFAULT_DATABASE)[0] || "loja-modelo";
   const [db, setDb] = useState<SaasDatabase>(SAAS_DEFAULT_DATABASE);
-  const [slugSelecionado, setSlugSelecionado] = useState<string>("elite-motors");
-  const [lojaAtual, setLojaAtual] = useState<MinisiteData>(SAAS_DEFAULT_DATABASE["elite-motors"]);
+  const [slugSelecionado, setSlugSelecionado] = useState<string>(defaultSlug);
+  const [lojaAtual, setLojaAtual] = useState<MinisiteData>(SAAS_DEFAULT_DATABASE[defaultSlug] || Object.values(SAAS_DEFAULT_DATABASE)[0]);
 
-  const [abaAtiva, setAbaAtiva] = useState<"auditoria" | "vendedores" | "catalogo" | "loja">("auditoria");
+  const [abaAtiva, setAbaAtiva] = useState<"loja" | "vendedores" | "catalogo" | "auditoria">("loja");
   const [modalSegurancaAberto, setModalSegurancaAberto] = useState(false);
   const [salvoFeedback, setSalvoFeedback] = useState(false);
   const [copiouId, setCopiouId] = useState<string | null>(null);
@@ -454,15 +455,15 @@ export default function AdminPage() {
         {/* Abas de Navegação */}
         <div className="flex flex-wrap gap-2 p-1.5 rounded-2xl bg-zinc-900/80 border border-zinc-800">
           <button
-            onClick={() => setAbaAtiva("auditoria")}
+            onClick={() => setAbaAtiva("loja")}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${
-              abaAtiva === "auditoria"
+              abaAtiva === "loja"
                 ? "bg-amber-500 text-black shadow-md"
                 : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
             }`}
           >
-            <BarChart3 className="w-4 h-4" />
-            Auditoria & Métricas ({lojaAtual.nomeLoja})
+            <Settings className="w-4 h-4" />
+            Configurações & Minisite
           </button>
           <button
             onClick={() => setAbaAtiva("vendedores")}
@@ -483,19 +484,19 @@ export default function AdminPage() {
                 : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
             }`}
           >
-            <Car className="w-4 h-4" />
-            Estoque & Vitrine ({lojaAtual.catalogo.length})
+            <ShoppingBag className="w-4 h-4" />
+            Produtos & Vitrine ({lojaAtual.catalogo.length})
           </button>
           <button
-            onClick={() => setAbaAtiva("loja")}
+            onClick={() => setAbaAtiva("auditoria")}
             className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all ${
-              abaAtiva === "loja"
+              abaAtiva === "auditoria"
                 ? "bg-amber-500 text-black shadow-md"
                 : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
             }`}
           >
-            <Settings className="w-4 h-4" />
-            Configurações & Tema
+            <BarChart3 className="w-4 h-4" />
+            Métricas de Vendas & Acesso
           </button>
         </div>
 
@@ -533,7 +534,7 @@ export default function AdminPage() {
                   <div className="text-[11px] text-zinc-500 mt-0.5">Visita → Ação de Compra</div>
                 </div>
                 <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6" />
+                  <Zap className="w-6 h-6" />
                 </div>
               </div>
             </div>
@@ -608,7 +609,7 @@ export default function AdminPage() {
             {/* Como Funciona a Amarra de Vendas */}
             <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-500/10 via-zinc-900 to-zinc-900 border border-amber-500/20">
               <h3 className="font-bold text-sm text-amber-400 flex items-center gap-2 mb-2">
-                <Sparkles className="w-4 h-4" />
+                <ShieldCheck className="w-4 h-4" />
                 Como a Amarra de Vendas Funciona na Prática?
               </h3>
               <p className="text-xs text-zinc-300 leading-relaxed">

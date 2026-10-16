@@ -3,7 +3,7 @@
 import React from "react";
 import {
   X,
-  Sparkles,
+  BookOpen,
   Zap,
   Target,
   Users,
@@ -34,7 +34,7 @@ export default function ManualSaasModal({ aberto, onFechar }: ManualSaasModalPro
         <div className="p-6 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/60">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
-              <Sparkles className="w-5 h-5" />
+              <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400">
